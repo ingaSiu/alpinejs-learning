@@ -31,7 +31,10 @@
           <span></span>Username:
           <input type="text" maxlength="15" x-model="username" />
         </label>
-        <div x-text="username"></div>
+
+        <template x-if="errors.username">
+          <p class="error" x-text="errors.username"></p>
+        </template>
       </div>
 
       <!-- password -->
@@ -44,6 +47,10 @@
         <button type="button" @click="showPass=!showPass">
           <span x-text="showPass ? 'Hide' : 'Show'"></span>
         </button>
+
+        <template x-if="errors.password">
+          <p class="error" x-text="errors.password"></p>
+        </template>
       </div>
 
       <!-- confirm password -->
@@ -52,7 +59,9 @@
           <span>Confirm Password:</span>
           <input type="password" x-model="passwordConfirm" />
         </label>
-        <div x-text="passwordConfirm"></div>
+        <template x-if="errors.passwordConfirm">
+          <p class="error" x-text="errors.passwordConfirm"></p>
+        </template>
       </div>
 
       <!-- belt color -->
@@ -69,7 +78,9 @@
             <option value="brown">Brown</option>
           </select>
         </label>
-        <div x-text="belt"></div>
+        <template x-if="errors.belt">
+          <p class="error" x-text="errors.belt"></p>
+        </template>
       </div>
 
       <!-- short bio -->
@@ -81,7 +92,9 @@
           <span>Short Bio:</span>
           <textarea maxlength="100" x-model="bio"></textarea>
         </label>
-        <div x-text="bio"></div>
+        <template x-if="errors.bio">
+          <p class="error" x-text="errors.bio"></p>
+        </template>
       </div>
 
       <!-- newsletter signup -->
@@ -91,7 +104,6 @@
           <input type="checkbox" x-model="newsletter" />
           <span>Sign up for the newsletter</span>
         </label>
-        <div x-text="newsletter"></div>
       </div>
 
       <!-- submit button -->
