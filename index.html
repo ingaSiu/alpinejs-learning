@@ -17,10 +17,11 @@
       <!-- with x:on you listen for events -->
       <!-- @:keyup="" is a shorthand to x-on:keyup -->
       <!-- add more event modifiers to trigger the event -->
-      <button type="button" x-on:click.shift="console.log('click')">click</button>
+      <!-- <button type="button" x-on:click.shift="console.log('click')">click</button>
       <button type="button" x-on:mouseleave.ctrl="console.log('mouse leave')">mouseleave</button>
       <button type="button" x-on:dblclick="console.log('dblclick')">dblclick</button>
-      <input type="text" x-on:keyup="console.log('keyup')" />
+      <input type="text" x-on:keyup="console.log('keyup')" /> -->
+
       <!-- username -->
       <div class="form-field">
         <p class="hint" x-bind:class="{'warning':username.length > 10}">
@@ -37,9 +38,12 @@
       <div class="form-field password">
         <label>
           <span>Password:</span>
-          <input type="password" x-model="password" />
+          <input x-bind:type="showPass ? 'text' : 'password'" x-model="password" />
         </label>
-        <div x-text="password"></div>
+
+        <button type="button" @click="showPass=!showPass">
+          <span x-text="showPass ? 'Hide' : 'Show'"></span>
+        </button>
       </div>
 
       <!-- confirm password -->
