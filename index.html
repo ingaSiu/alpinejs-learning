@@ -64,18 +64,17 @@
         </template>
       </div>
 
+      <!--x-if, x-for directories: in template directory you should only have a single root element if you have more it is not gooing to work properly -->
       <!-- belt color -->
       <div class="form-field">
         <label
           >Belt Color:
           <select x-model="belt">
-            <!-- value will be the selected option -->
             <option value="">Select a belt</option>
-            <option value="black">Black</option>
-            <option value="white">White</option>
-            <option value="red">Red</option>
-            <option value="orange">Orange</option>
-            <option value="brown">Brown</option>
+
+            <template x-for="(choice, index) in beltChoices" :key="choice">
+              <option :value="choice" x-text="choice"></option>
+            </template>
           </select>
         </label>
         <template x-if="errors.belt">
